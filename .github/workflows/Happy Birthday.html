@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Muskan ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff4d6d, #6a00f4, #00b4d8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    .card {
+      position: relative;
+      width: 700px;
+      max-width: 90%;
+      padding: 50px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      transform-style: preserve-3d;
+      animation: float 6s ease-in-out infinite;
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: rotateY(-5deg) rotateX(5deg) translateY(0px); }
+      50% { transform: rotateY(5deg) rotateX(-5deg) translateY(-15px); }
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.8);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d; }
+      to { text-shadow: 0 0 20px #fff, 0 0 40px #ff99ac; }
+    }
+
+    .message {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: #fdfdfd;
+      margin-top: 15px;
+    }
+
+    .heart {
+      font-size: 5rem;
+      margin: 25px 0;
+      animation: beat 1s infinite;
+      filter: drop-shadow(0 0 15px red);
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .floating-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .floating-hearts span {
+      position: absolute;
+      color: rgba(255,255,255,0.8);
+      font-size: 24px;
+      animation: rise 10s linear infinite;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 50px;
+      background: white;
+      color: #ff4d6d;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background: #ffe5ec;
+    }
+
+    .hidden-message {
+      display: none;
+    }
+
+    .second-page {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: 999;
+      perspective: 1500px;
+    }
+
+    .love-container {
+      width: 85%;
+      max-width: 900px;
+      padding: 50px;
+      border-radius: 35px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+      color: white;
+      text-align: center;
+      transform-style: preserve-3d;
+      animation: pageFloat 5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes pageFloat {
+      0%,100% {
+        transform: rotateY(-4deg) rotateX(3deg) translateY(0px);
+      }
+      50% {
+        transform: rotateY(4deg) rotateX(-3deg) translateY(-10px);
+      }
+    }
+
+    .love-title {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    }
+
+    .love-paragraph {
+      font-size: 1.35rem;
+      line-height: 2.2rem;
+      color: #fff;
+    }
+
+    .rain-heart {
+      position: absolute;
+      top: -50px;
+      color: rgba(255,255,255,0.9);
+      animation: heartRain linear infinite;
+      user-select: none;
+    }
+
+    @keyframes heartRain {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .cake-page {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: radial-gradient(circle at top, #ffb3c6, #ff5d8f, #ffffff);
+      overflow: hidden;
+      z-index: 2000;
+    }
+
+    .cake {
+      position: relative;
+      width: 260px;
+      margin-top: 50px;
+      animation: cakeFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes cakeFloat {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .layer-bottom {
+      width: 260px;
+      height: 120px;
+      background: linear-gradient(to right, #ff8fab, #ffffff);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .layer-top {
+      width: 180px;
+      height: 90px;
+      background: linear-gradient(to right, #ffffff, #ff8fab);
+      border-radius: 20px;
+      position: absolute;
+      left: 40px;
+      top: -80px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .icing {
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: white;
+      border-radius: 50px;
+      top: 0;
+    }
+
+    .candles {
+      position: absolute;
+      top: -135px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 18px;
+    }
+
+    .candle {
+      width: 12px;
+      height: 45px;
+      background: white;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .flame {
+      width: 14px;
+      height: 20px;
+      background: gold;
+      border-radius: 50%;
+      position: absolute;
+      top: -18px;
+      left: -1px;
+      animation: flicker 0.4s infinite alternate;
+      box-shadow: 0 0 20px gold;
+    }
+
+    @keyframes flicker {
+      from { transform: scale(1); opacity: 0.9; }
+      to { transform: scale(1.2); opacity: 1; }
+    }
+
+    .cake-title {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 20px rgba(255,255,255,0.9);
+      z-index: 2;
+    }
+
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+      animation: explode 2s linear infinite;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(18);
+        opacity: 0;
+      }
+    }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .message {
+        font-size: 1.1rem;
+      }
+
+      .heart {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="floating-hearts"></div>
+
+  <div class="card">
+    <h1>Happy Birthday Muskan 🎂</h1>
+
+    <div class="heart">❤️</div>
+
+    <p class="message">
+      To My Beloved Future Wife Muskan,<br><br>
+      On your special day, I just want to remind you how precious you are to me.
+      You are the dream in my heart, the happiness in my life, and the love I always prayed for.
+      May your birthday be filled with endless smiles, love, success, and magical moments.
+    </p>
+
+    <button onclick="showMessage()">Open My Heart 💌</button>
+
+    <div class="footer">
+      Forever Yours 💖
+    </div>
+  </div>
+
+  <script>
+    const starsContainer = document.querySelector('.stars');
+    const heartsContainer = document.querySelector('.floating-hearts');
+
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      starsContainer.appendChild(star);
+    }
+
+    for (let i = 0; i < 35; i++) {
+      const heart = document.createElement('span');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+      heartsContainer.appendChild(heart);
+    }
+
+    function showMessage() {
+      document.getElementById('secondPage').style.display = 'flex';
+
+      for (let i = 0; i < 1000; i++) {
+        const rainHeart = document.createElement('div');
+        rainHeart.classList.add('rain-heart');
+        rainHeart.innerHTML = '❤';
+        rainHeart.style.left = Math.random() * 100 + 'vw';
+        rainHeart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+        rainHeart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+        rainHeart.style.animationDelay = Math.random() * 5 + 's';
+        document.getElementById('secondPage').appendChild(rainHeart);
+      }
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      const card = document.querySelector('.card');
+      const x = (window.innerWidth / 2 - e.pageX) / 25;
+      const y = (window.innerHeight / 2 - e.pageY) / 25;
+      card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+
+    function openCakePage() {
+      document.getElementById('cakePage').style.display = 'flex';
+
+      for (let i = 0; i < 120; i++) {
+        const firework = document.createElement('div');
+        firework.classList.add('firework');
+        firework.style.left = Math.random() * 100 + 'vw';
+        firework.style.top = Math.random() * 100 + 'vh';
+        firework.style.animationDuration = (Math.random() * 2 + 1) + 's';
+        firework.style.animationDelay = Math.random() * 3 + 's';
+        document.getElementById('cakePage').appendChild(firework);
+      }
+    }
+  </script>
+
+  <div class="second-page" id="secondPage">
+    <div class="love-container">
+      <div class="love-title">For My Beautiful Muskan ❤️</div>
+
+      <div class="love-paragraph">
+        Muskan, you are one of the most beautiful souls I have ever known.
+        Your kindness shines brighter than the stars in the sky, and your smile
+        has the power to make every dark moment feel warm again.
+        <br><br>
+        I admire the way you care for people, the softness in your heart,
+        and the respect you show to everyone around you.
+        Your beauty is not only in your face, but in your pure character,
+        your lovely behavior, and your precious soul.
+        <br><br>
+        Every little thing about you feels magical to me.
+        You are elegant, sweet, caring, loyal, and truly unforgettable.
+        I feel lucky just thinking about a future with you.
+        <br><br>
+        No matter how much I write, words will never be enough to describe
+        how special you are to my heart.
+        <br><br>
+        Happy Birthday My Future Wife 💖👑
+        <br><br>
+        <button onclick="openCakePage()">Happy Birthday 🎂</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cake-page" id="cakePage">
+    <div class="cake-title"></div>
+
+    <div class="cake">
+      <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+      </div>
+
+      <div class="layer-top">
+        <div class="icing"></div>
+      </div>
+
+      <div class="layer-bottom">
+        <div class="icing"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
